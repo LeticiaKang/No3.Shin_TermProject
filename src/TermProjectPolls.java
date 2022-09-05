@@ -1,6 +1,6 @@
 public class TermProjectPolls {
     public int PollFunction(){
-        System.out.println("설문");
+        System.out.print("설문(P) ");
         return 1;
     }
 }
