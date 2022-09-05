@@ -34,8 +34,8 @@ public class TermProjectDemo {
             // System.out.println("저는 S에요^^");
         }
         else if(user_input.compareTo("P") == 0){ //설문(P)를 선택했을 경우
-            System.out.println("이름을 입력하세요>> ");
-            user_name = sc.nextLine()
+            System.out.print("이름을 입력하세요>> ");
+            user_name = sc.nextLine();
             try {
                 Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 Statement stmt = conn.createStatement();  //공통으로 사용하기 위해서. 빈화면이 statement고 이걸 class에 사용하고 싶은거임
