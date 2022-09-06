@@ -68,7 +68,6 @@ public class TermProjectDemo {
                                                 + rs.getInt("count(Answers_ID)") + "개 입니다.");
                         }    
                     } catch (SQLException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
                 
