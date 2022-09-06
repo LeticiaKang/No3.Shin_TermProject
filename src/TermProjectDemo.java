@@ -129,6 +129,7 @@ public class TermProjectDemo {
                 System.out.println("설문을 종료합니다.");
                 repeat = false;
             }
+            // 설문(P), 통계(S), 종료(Q) 외 다른 문자 입력시 경고문 후 다시 Home 선택화면으로
             else{
                 System.out.println("다시 입력하세요.");
             }
