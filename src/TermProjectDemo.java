@@ -20,24 +20,29 @@ public class TermProjectDemo {
         int user_anw = 1;
         boolean repeat = true;
         
-        do{
-            // 요구사항 1. Home화면 (통계 & 설문 중 선택하기)
+        do{ // Do-While문을 사용해서 Home으로 돌아올 수 있음. 
+
+            // 요구사항 1. Home화면 (통계(S) 설문(P) 종료(Q) 중 선택하기)
             System.out.print("다음 중 선택하세요. ");
-        
+         
+            // PollFunction : 설문(P)가 출력되는 메소드
             TermProjectPolls polls = new TermProjectPolls();
             int val = polls.PollFunction();
-            
+             
+            // StaticsFunction : 통계(S)가 출력되는 메소드
             TermProjectStatics statics = new TermProjectStatics();
             val = statics.StaticsFunction();
 
+            // EndFunction : 종료(Q)가 출력되는 메소드
             TermProjectEnd end = new TermProjectEnd();
             val = end.EndFunction();
 
+            // user가 입력하는 값이 user_input에 저장됨
             user_input = sc.nextLine();
             
-        
+            // user_input에 저장된 값을 If-else문을 이용해서 비교후 해당되는 곳의 실행구문이 동작됨
             if(user_input.compareTo("S") == 0){ 
-                // 1. 통계화면 만들기 (각 문항별 답항의 개수 출력)
+                // 요구사항 5. 통계(S)화면 출력 (설문 참여자 수, 각 문항별, 답항별 개수 출력)
                             
                 System.out.println("======이용 만족도 설문 결과 다음과 같습니다.======");
                 
@@ -45,13 +50,13 @@ public class TermProjectDemo {
                     Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                     Statement stmt = conn.createStatement(); 
                     
+                    // 5-1. 설문에 참여한 인원을 구하여 출력(count 이용)
                     String user_count_QUERY = "select count(*) as user_count from Client_survey"; //설문에 참여한 인원수
                     ResultSet rs = stmt.executeQuery(user_count_QUERY);
                         while(rs.next()){
-                        // 참여자 수를 출력합니다. 
                         System.out.println("참여자수: " + rs.getInt("user_count"));}
 
-                    // 문항에 대한 답변의 개수 구해서 평균 구하기
+                    // 5-2. 각 설문의 문항별, 답항별 개수 출력(groupby 이용)
                     String answer_count_QUERY = "select Questions_ID, Answers_ID,count(Answers_ID) "+
                                                 "from result " +
                                                 "group by Questions_ID, Answers_ID " +
