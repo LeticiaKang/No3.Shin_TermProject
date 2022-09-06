@@ -34,11 +34,8 @@ public class TermProjectDemo {
             
         
             if(user_input.compareTo("S") == 0){ 
-                // 1. 통계화면 만들기 (1.이용, 2.시설 및 청결, 3.음료 품질, 4.친절도)
-                // 1. 매우 만족(1) ~ 불만족(5) : 100% ~ 0% 대응 
-                // 1. 1번 질문에 대해 (답 1번(4명), 3번(1명), 5번(2명) → (100*4 + 50*1 + 0*2)/7 = 64.2)
-                // 1. 가로 그래프로 1.이용 0 ■■■■■■■■■■■■■64□□□□□□100 표현? 아님 1.이용 만족도 : 64.2%?
-                
+                // 1. 통계화면 만들기 (각 문항별 답항의 개수 출력)
+                            
                 System.out.println("======이용 만족도 설문 결과 다음과 같습니다.======");
                 
                 try {
@@ -58,18 +55,13 @@ public class TermProjectDemo {
                                                 "group by Questions_ID, Answers_ID " +
                                                 "order by Questions_ID";
                     rs = stmt.executeQuery(answer_count_QUERY);
-                    while(rs.next()){
-                        int answer_count = rs.getInt("count(Answers_ID)");
-                        System.out.println("문항번호: "+ rs.getInt( "Questions_ID")  + "답"
-                                            + rs.getInt("Answers_ID") + "개수"
-                                            + rs.getInt("count(Answers_ID)"));
-                        
-
-                    }
-                    
-
-
-                } catch (SQLException e) {
+                        while(rs.next()){
+                            int answer_count = rs.getInt("count(Answers_ID)");
+                            System.out.println("문항 "+ rs.getInt( "Questions_ID") + "번, 답항 "
+                                                + rs.getInt("Answers_ID") + "번의 개수 "
+                                                + rs.getInt("count(Answers_ID)") + "개 입니다.");
+                        }    
+                    } catch (SQLException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
@@ -97,6 +89,9 @@ public class TermProjectDemo {
                     QUERY = "insert into client_survey(Client_ID, Name) "  +
                             "values( "+max_mun+", '"+user_name+"' )";
                     stmt.executeUpdate(QUERY);
+                    while(rs.next()){
+                        System.out.println();
+                    }
 
                     // 3. 질문이 시작됨. 선택지는 동일. for문으로 반복함
                     // 3. select문을 이용해서 출력
