@@ -51,7 +51,7 @@ public class TermProjectDemo {
                     Statement stmt = conn.createStatement(); 
                     
                     // 5-1. 설문에 참여한 인원을 구하여 출력(count 이용)
-                    String user_count_QUERY = "select count(*) as user_count from Client_survey"; //설문에 참여한 인원수
+                    String user_count_QUERY = "select count(*) as user_count from Client_survey";
                     ResultSet rs = stmt.executeQuery(user_count_QUERY);
                         while(rs.next()){
                         System.out.println("참여자수: " + rs.getInt("user_count"));}
