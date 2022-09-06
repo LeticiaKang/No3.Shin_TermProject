@@ -76,44 +76,45 @@ public class TermProjectDemo {
 
             }
             else if(user_input.compareTo("P") == 0){ 
+                // 요구사항 2. 설문(P)화면 출력 (이름 등록 → 설문 시작)
                 try {
                     Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                     Statement stmt = conn.createStatement(); 
 
-                    // 1. InputName : 사용자 이름을 입력받는 메소드
+                    // 2-1. InputName : 사용자 이름을 입력받는 메소드
                     user_name = polls.InputName();
                     
-                    // 2. 입력받은 사용자이름은 client_survey라는 곳에 저장되어야 함.
-                    // 2. 해당 컬럽의 max값을 찾아 + 1하여 추가하는 방식
+                    // 2-2. 입력받은 사용자이름은 client_survey라는 곳에 저장되어야 함.
+                    // 2-2. 해당 컬럽의 max값을 찾아 + 1하여 추가하는 방식
+                    // max_num_QUERY : 해당 컬럼의 최대값을 구함
                     max_num_QUERY = "select ifnull(max(Client_ID), 0) as max_col from client_survey";
                     ResultSet rs = stmt.executeQuery(max_num_QUERY);
                     rs.next();
                     int max_mun = rs.getInt("max_col") + 1;
                     
+                    // QUERY : client_survey테이블에 해당하는 값을 insert해줌
                     QUERY = "insert into client_survey(Client_ID, Name) "  +
                             "values( "+max_mun+", '"+user_name+"' )";
                     stmt.executeUpdate(QUERY);
                                       
-                    // 3. 질문이 시작됨. 선택지는 동일. for문으로 반복함
-                    // 3. select문을 이용해서 출력
+                    // 2-3. 질문이 시작됨. 선택지는 동일. for문으로 반복함
                     for (int num = 1; num <5 ; num ++){
+                        // QUERY : int num을 매개로 where문을 사용해서 문항을 출력함
                         QUERY = "select Questions from questions " +
                                 "where 1=1 and Questions_ID = "+num+"";
                         rs = stmt.executeQuery(QUERY);
-                        // Extract data from result set
                             while (rs.next()){
-                                // 3. 질문을 출력함
                                 System.out.println("Questions: " + rs.getString("Questions"));
                                 System.out.println("1.매우 만족  2.만족  3.보통  4.불만족  5.매우불만족");
                             }
 
-                        // 4. user에게 답변 받아 result table에 저장해야 함.
+                        // 2-4. user에게 답변 받아 result 테이블에 저장해야 함.
                         System.out.print("답변을 입력하세요.");
                         user_anw = Integer.parseInt(sc.nextLine()); 
                         System.out.println("");
                     
                         QUERY = "insert into result(Questions_ID, Answers_ID, Client_ID) " +
-                            "values( "+num+", "+user_anw+" , "+max_mun+" )";
+                                "values( "+num+", "+user_anw+" , "+max_mun+" )";
                         stmt.executeUpdate(QUERY);
 
                     }
@@ -123,6 +124,7 @@ public class TermProjectDemo {
                 }
                 
             }
+            // 요구사항 7. 종료(Q) 입력시, 설문 마치기
             else if(user_input.compareTo("Q") == 0){
                 System.out.println("설문을 종료합니다.");
                 repeat = false;
