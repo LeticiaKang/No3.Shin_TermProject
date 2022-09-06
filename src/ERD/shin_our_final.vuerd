@@ -3,9 +3,9 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -414.0458196121312,
-    "scrollLeft": -469.00765407391805,
-    "zoomLevel": 0.6,
+    "scrollTop": -345.6895906457647,
+    "scrollLeft": -515.3104650727389,
+    "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -43,13 +43,13 @@
   "table": {
     "tables": [
       {
-        "name": "Client Survey",
-        "comment": "",
+        "name": "Client_Survey",
+        "comment": "설문 참여자 정보 저장",
         "columns": [
           {
-            "name": "Client Key",
+            "name": "Client_ID",
             "comment": "설문참여자의 고유번호",
-            "dataType": "",
+            "dataType": "int",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -62,7 +62,7 @@
               "pk": true,
               "fk": false,
               "pfk": false,
-              "widthName": 61.02685546875,
+              "widthName": 60,
               "widthComment": 120,
               "widthDataType": 60,
               "widthDefault": 60
@@ -72,7 +72,7 @@
           {
             "name": "Name",
             "comment": "설문참여자의 이름 / 아이디로 해도 될 듯?",
-            "dataType": "",
+            "dataType": "varchar(200)",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -87,7 +87,7 @@
               "pfk": false,
               "widthName": 60,
               "widthComment": 120,
-              "widthDataType": 60,
+              "widthDataType": 73.677734375,
               "widthDefault": 60
             },
             "id": "d1af5a10-3526-4758-9c19-bb1b4b4d0b7c"
@@ -95,11 +95,11 @@
         ],
         "ui": {
           "active": false,
-          "left": 180.5893,
-          "top": 317.1695,
-          "zIndex": 5,
-          "widthName": 79.52392578125,
-          "widthComment": 60
+          "left": 953.4949,
+          "top": 285.1973,
+          "zIndex": 121,
+          "widthName": 80.48876953125,
+          "widthComment": 120
         },
         "visible": true,
         "id": "bc735c87-977c-4f7b-80f0-7996eb432457"
@@ -109,9 +109,9 @@
         "comment": "문항 모음",
         "columns": [
           {
-            "name": "Questions Key",
-            "comment": "",
-            "dataType": "",
+            "name": "Questions_ID",
+            "comment": "문항 고유번호",
+            "dataType": "int",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -124,8 +124,8 @@
               "pk": true,
               "fk": false,
               "pfk": false,
-              "widthName": 86.1953125,
-              "widthComment": 60,
+              "widthName": 79.14306640625,
+              "widthComment": 84.5703125,
               "widthDataType": 60,
               "widthDefault": 60
             },
@@ -133,8 +133,8 @@
           },
           {
             "name": "Questions",
-            "comment": "이용빈도, 개선사항, 만족도, 친절도",
-            "dataType": "",
+            "comment": "",
+            "dataType": "varchar(200)",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -148,8 +148,8 @@
               "fk": false,
               "pfk": false,
               "widthName": 60.77294921875,
-              "widthComment": 120,
-              "widthDataType": 60,
+              "widthComment": 60,
+              "widthDataType": 73.677734375,
               "widthDefault": 60
             },
             "id": "4775a67c-50e1-47f7-bd16-5a76e851fb5a"
@@ -157,9 +157,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 1334.4033,
-          "top": 238.7276,
-          "zIndex": 2,
+          "left": 498.066,
+          "top": 453.9955,
+          "zIndex": 122,
           "widthName": 60.77294921875,
           "widthComment": 60
         },
@@ -167,13 +167,13 @@
         "id": "b1d918c6-1f66-48e0-b765-dae817c241bf"
       },
       {
-        "name": "Answers모음",
-        "comment": "",
+        "name": "Answers",
+        "comment": "답항 모음",
         "columns": [
           {
-            "name": "Answers Key",
-            "comment": "",
-            "dataType": "",
+            "name": "Answers_ID",
+            "comment": "답항 고유번호",
+            "dataType": "int",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -186,8 +186,8 @@
               "pk": true,
               "fk": false,
               "pfk": false,
-              "widthName": 75.90576171875,
-              "widthComment": 60,
+              "widthName": 68.853515625,
+              "widthComment": 84.5703125,
               "widthDataType": 60,
               "widthDefault": 60
             },
@@ -196,7 +196,7 @@
           {
             "name": "Answers",
             "comment": "",
-            "dataType": "",
+            "dataType": "varchar(200)",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -211,7 +211,7 @@
               "pfk": false,
               "widthName": 60,
               "widthComment": 60,
-              "widthDataType": 60,
+              "widthDataType": 73.677734375,
               "widthDefault": 60
             },
             "id": "367c5744-3540-4a39-899e-b850e3758e9c"
@@ -219,23 +219,23 @@
         ],
         "ui": {
           "active": false,
-          "left": 1362.1372,
-          "top": 529.7706,
-          "zIndex": 1,
-          "widthName": 76.4833984375,
+          "left": 1439.0838,
+          "top": 465.0829,
+          "zIndex": 120,
+          "widthName": 60,
           "widthComment": 60
         },
         "visible": true,
         "id": "a82cc36a-5f0a-4fc1-94aa-17829451f799"
       },
       {
-        "name": "결과",
-        "comment": "",
+        "name": "result",
+        "comment": "결과 값이 저장됨",
         "columns": [
           {
-            "name": "Questions Key",
-            "comment": "",
-            "dataType": "",
+            "name": "Questions_ID",
+            "comment": "문항 고유번호",
+            "dataType": "int",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -248,17 +248,17 @@
               "pk": false,
               "fk": true,
               "pfk": false,
-              "widthName": 86.1953125,
-              "widthComment": 60,
+              "widthName": 79.14306640625,
+              "widthComment": 84.5703125,
               "widthDataType": 60,
               "widthDefault": 60
             },
             "id": "fba0d09d-484d-4c1c-891e-0cb8ebb207e7"
           },
           {
-            "name": "Answers Key",
-            "comment": "",
-            "dataType": "",
+            "name": "Answers_ID",
+            "comment": "답항 고유번호",
+            "dataType": "int",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -271,17 +271,17 @@
               "pk": false,
               "fk": true,
               "pfk": false,
-              "widthName": 75.90576171875,
-              "widthComment": 60,
+              "widthName": 68.853515625,
+              "widthComment": 84.5703125,
               "widthDataType": 60,
               "widthDefault": 60
             },
             "id": "8ef336a3-1714-4961-8df2-5fb8770ba44d"
           },
           {
-            "name": "Client Key",
-            "comment": "설문참여자의 고유번호",
-            "dataType": "",
+            "name": "Client_ID",
+            "comment": "설참여자의 고유번호",
+            "dataType": "int",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -294,7 +294,7 @@
               "pk": false,
               "fk": true,
               "pfk": false,
-              "widthName": 61.02685546875,
+              "widthName": 60,
               "widthComment": 120,
               "widthDataType": 60,
               "widthDefault": 60
@@ -304,11 +304,11 @@
         ],
         "ui": {
           "active": false,
-          "left": 730.0773,
-          "top": 316.9459,
-          "zIndex": 4,
+          "left": 945.8538,
+          "top": 590.2538,
+          "zIndex": 111,
           "widthName": 60,
-          "widthComment": 60
+          "widthComment": 102.140625
         },
         "visible": true,
         "id": "5b7b51d1-299e-460d-aede-82ed68319519"
@@ -330,18 +330,18 @@
           "columnIds": [
             "b6ab5d2b-ec31-46fd-a930-11873a91be44"
           ],
-          "x": 1334.4033,
-          "y": 293.7276,
-          "direction": "left"
+          "x": 902.45711328125,
+          "y": 508.9955,
+          "direction": "right"
         },
         "end": {
           "tableId": "5b7b51d1-299e-460d-aede-82ed68319519",
           "columnIds": [
             "fba0d09d-484d-4c1c-891e-0cb8ebb207e7"
           ],
-          "x": 1163.2726125,
-          "y": 349.5709,
-          "direction": "right"
+          "x": 945.8538,
+          "y": 655.5038,
+          "direction": "left"
         },
         "constraintName": "fk_questions_to_중간저장소",
         "visible": true,
@@ -356,8 +356,8 @@
           "columnIds": [
             "edefb73f-113c-4d56-a853-cf66a9aef769"
           ],
-          "x": 1362.1372,
-          "y": 584.7706,
+          "x": 1439.0838,
+          "y": 520.0829,
           "direction": "left"
         },
         "end": {
@@ -365,8 +365,8 @@
           "columnIds": [
             "8ef336a3-1714-4961-8df2-5fb8770ba44d"
           ],
-          "x": 1163.2726125,
-          "y": 414.8209,
+          "x": 1371.9968664062499,
+          "y": 655.5038,
           "direction": "right"
         },
         "constraintName": "fk_answers모음_to_중간저장소",
@@ -382,18 +382,18 @@
           "columnIds": [
             "074f0147-e4a0-43c0-9de2-336943ea24f3"
           ],
-          "x": 588.61615546875,
-          "y": 372.1695,
-          "direction": "right"
+          "x": 1163.8337671875001,
+          "y": 395.1973,
+          "direction": "bottom"
         },
         "end": {
           "tableId": "5b7b51d1-299e-460d-aede-82ed68319519",
           "columnIds": [
             "b4a113eb-76df-4421-b694-d1df4e049f6a"
           ],
-          "x": 730.0773,
-          "y": 382.1959,
-          "direction": "left"
+          "x": 1158.9253332031249,
+          "y": 590.2538,
+          "direction": "top"
         },
         "constraintName": "fk_client survey_to_중간저장소",
         "visible": true,
